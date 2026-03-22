@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iván Peralta Carrera | CV Web</title>
+  <meta name="description" content="Currículum web de Iván Peralta Carrera" />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #0b1120;
+      --bg-soft: #111827;
+      --panel: rgba(17, 24, 39, 0.78);
+      --panel-2: rgba(15, 23, 42, 0.9);
+      --line: rgba(148, 163, 184, 0.16);
+      --text: #e5eefb;
+      --muted: #9fb0cc;
+      --green: #22c55e;
+      --green-soft: rgba(34, 197, 94, 0.12);
+      --blue: #38bdf8;
+      --purple: #a78bfa;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+      --radius: 22px;
+      --mono: "JetBrains Mono", monospace;
+      --sans: "Inter", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.14), transparent 28%),
+        radial-gradient(circle at top right, rgba(167, 139, 250, 0.12), transparent 26%),
+        radial-gradient(circle at bottom center, rgba(34, 197, 94, 0.10), transparent 30%),
+        linear-gradient(180deg, #07101f 0%, #0b1120 50%, #0a0f1c 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 36px 36px;
+      pointer-events: none;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent 95%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1150px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      animation: fadeUp 0.9s ease forwards;
+    }
+
+    .fade-up.delay-1 { animation-delay: 0.12s; }
+    .fade-up.delay-2 { animation-delay: 0.24s; }
+    .fade-up.delay-3 { animation-delay: 0.36s; }
+    .fade-up.delay-4 { animation-delay: 0.48s; }
+    .fade-up.delay-5 { animation-delay: 0.60s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatBlob {
+      0%, 100% { transform: translateY(0px) translateX(0px); }
+      50% { transform: translateY(-14px) translateX(8px); }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.18); }
+      50% { box-shadow: 0 0 0 14px rgba(34, 197, 94, 0); }
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(17, 24, 39, 0.92), rgba(15, 23, 42, 0.82)),
+        linear-gradient(135deg, rgba(34,197,94,0.06), rgba(56,189,248,0.05));
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 26px;
+      margin-bottom: 26px;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(8px);
+      opacity: 0.9;
+      animation: floatBlob 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 220px;
+      height: 220px;
+      right: -40px;
+      top: -60px;
+      background: radial-gradient(circle, rgba(34,197,94,0.18), transparent 70%);
+    }
+
+    .hero::after {
+      width: 180px;
+      height: 180px;
+      left: -50px;
+      bottom: -70px;
+      background: radial-gradient(circle, rgba(56,189,248,0.12), transparent 70%);
+      animation-delay: 1.2s;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1px solid rgba(34, 197, 94, 0.18);
+      background: rgba(34, 197, 94, 0.08);
+      color: #bdf7cb;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+      backdrop-filter: blur(8px);
+    }
+
+    .tag i {
+      color: var(--green);
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 4vw, 4rem);
+      line-height: 0.95;
+      margin: 0 0 14px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .name-accent {
+      color: var(--green);
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.06rem;
+      max-width: 620px;
+      line-height: 1.7;
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    .contact-card {
+      background: rgba(10, 15, 28, 0.56);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--text);
+      font-size: 0.98rem;
+    }
+
+    .contact-item i {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(34, 197, 94, 0.10);
+      color: var(--green);
+      border: 1px solid rgba(34, 197, 94, 0.16);
+      flex-shrink: 0;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      padding: 10px 13px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      padding: 24px;
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .panel:hover {
+      transform: translateY(-6px);
+      border-color: rgba(34, 197, 94, 0.28);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 18px;
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title i {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.10);
+      color: var(--blue);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+    }
+
+    .code-box {
+      background: linear-gradient(180deg, rgba(2, 6, 23, 0.95), rgba(15, 23, 42, 0.96));
+      border: 1px solid rgba(34, 197, 94, 0.16);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .code-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+
+    .dot.red { background: #fb7185; }
+    .dot.yellow { background: #fbbf24; }
+    .dot.green { background: #22c55e; }
+
+    .code-content {
+      margin: 0;
+      padding: 18px 20px 20px;
+      font-family: var(--mono);
+      color: #b8f7ca;
+      line-height: 1.8;
+      font-size: 0.95rem;
+      white-space: pre-wrap;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 14px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(34,197,94,0.35), rgba(56,189,248,0.08));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 42px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 18px 18px 42px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 22px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.10);
+      animation: pulseGlow 3s infinite;
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+    }
+
+    .timeline-meta {
+      color: var(--green);
+      font-weight: 700;
+      font-size: 0.92rem;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .timeline-item p,
+    .timeline-item li {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .timeline-item ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+
+    .project-card {
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(17, 24, 39, 0.92));
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .project-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .project-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: white;
+      flex-shrink: 0;
+      font-size: 1.05rem;
+    }
+
+    .project-icon.green {
+      background: linear-gradient(135deg, #16a34a, #22c55e);
+    }
+
+    .project-icon.blue {
+      background: linear-gradient(135deg, #0284c7, #38bdf8);
+    }
+
+    .project-card h3 {
+      margin: 0;
+      font-size: 1.04rem;
+    }
+
+    .project-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .project-tags span {
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+      color: #c8d5ea;
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(6, 10, 20, 0.45);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+    }
+
+    thead th {
+      text-align: left;
+      padding: 16px 16px;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #baf4c8;
+      background: rgba(34, 197, 94, 0.08);
+      border-bottom: 1px solid rgba(34, 197, 94, 0.14);
+      font-family: var(--mono);
+    }
+
+    tbody td {
+      padding: 15px 16px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.10);
+      color: var(--muted);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    tbody tr {
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+
+    tbody tr:hover {
+      background: rgba(56, 189, 248, 0.06);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .year-cell {
+      color: var(--green);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .issuer {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .footer {
+      margin-top: 22px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+      padding: 16px 10px 0;
+    }
+
+    .footer i {
+      color: var(--green);
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(100% - 20px, 1150px);
+        padding-top: 18px;
+      }
+
+      .hero {
+        padding: 22px;
+        border-radius: 24px;
+      }
+
+      .panel {
+        padding: 18px;
+      }
+
+      h1 {
+        line-height: 1;
+      }
+
+      .contact-item {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <section class="hero fade-up">
+      <div>
+        <div class="tag">
+          <i class="fa-solid fa-code"></i>
+          CV Web · Estilo moderno
+        </div>
+
+        <h1>
+          Iván <span class="name-accent">Peralta</span><br />
+          Carrera_
+        </h1>
+
+        <p class="subtitle">
+          Estudiante de <strong>Sistemas Microinformáticos y Redes</strong> con interés en
+          sistemas, soporte técnico, redes, cloud y desarrollo web. Me gusta aprender,
+          crear proyectos útiles y seguir mejorando en el mundo de la informática.
+        </p>
+      </div>
+
+      <div class="hero-right">
+        <div class="contact-card">
+          <a class="contact-item" href="mailto:ivanpc2008@icloud.com">
+            <i class="fa-solid fa-envelope"></i>
+            <span>ivanpc2008@icloud.com</span>
+          </a>
+
+          <a class="contact-item" href="tel:+34684237852">
+            <i class="fa-solid fa-phone"></i>
+            <span>684 237 852</span>
+          </a>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Chipiona, Cádiz</span>
+          </div>
+        </div>
+
+        <div class="hero-badges">
+          <span class="badge"><i class="fa-solid fa-network-wired"></i> SMR</span>
+          <span class="badge"><i class="fa-solid fa-shield-halved"></i> Ciberseguridad</span>
+          <span class="badge"><i class="fa-solid fa-cloud"></i> Cloud</span>
+          <span class="badge"><i class="fa-solid fa-laptop-code"></i> Web</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="panel fade-up delay-1">
+        <h2 class="section-title">
+          <i class="fa-solid fa-user"></i>
+          Sobre mí
+        </h2>
+
+        <div class="code-box">
+          <div class="code-top">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <pre class="code-content">const ivan = {
+  perfil: "Estudiante de informática",
+  enfoque: ["sistemas", "redes", "soporte", "cloud"],
+  actitud: "aprendizaje continuo",
+  objetivo: "seguir creciendo profesionalmente"
+};</pre>
+        </div>
+      </div>
+
+      <div class="panel fade-up delay-2">
+        <h2 class="section-title">
+          <i class="fa-solid fa-graduation-cap"></i>
+          Formación
+        </h2>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <h3>ESO</h3>
+            <span class="timeline-meta">2020 · 2024</span>
+            <p>Divina Pastora, Chipiona.</p>
+          </article>
+
+          <article class="timeline-item">
+            <h3>Sistemas Microinformáticos y Redes</h3>
+            <span class="timeline-meta">2024 · 2026</span>
+            <p>IES Salmedina.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" style="margin-top: 22px;">
+      <div class="panel fade-up delay-3">
+        <h2 class="section-title">
+          <i class="fa-solid fa-briefcase"></i>
+          Experiencia
+        </h2>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <h3>Prácticas · Dpto. Informática</h3>
+            <span class="timeline-meta">Ayuntamiento de Chipiona · 2024</span>
+            <ul>
+              <li>Soporte técnico en el departamento de informática.</li>
+              <li>Resolución de incidencias básicas y apoyo en mantenimiento de equipos.</li>
+              <li>Contacto con tareas reales en entorno profesional.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <div class="panel fade-up delay-4">
+        <h2 class="section-title">
+          <i class="fa-solid fa-diagram-project"></i>
+          Proyectos
+        </h2>
+
+        <div style="display:grid; gap:16px;">
+          <article class="project-card">
+            <div class="project-top">
+              <div class="project-icon green">
+                <i class="fa-brands fa-ubuntu"></i>
+              </div>
+              <div>
+                <h3>FareraOS</h3>
+              </div>
+            </div>
+            <p>
+              Distribución basada en Ubuntu adaptada a las necesidades de la
+              biblioteca del IES Salmedina.
+            </p>
+            <div class="project-tags">
+              <span>Ubuntu</span>
+              <span>Linux</span>
+              <span>Personalización</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <div class="project-icon blue">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+              </div>
+              <div>
+                <h3>Conect@</h3>
+              </div>
+            </div>
+            <p>
+              Sistema de gestión de incidencias técnicas en las aulas del
+              IES Salmedina.
+            </p>
+            <div class="project-tags">
+              <span>Soporte técnico</span>
+              <span>Gestión</span>
+              <span>Centro educativo</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel fade-up delay-5" style="margin-top: 22px;">
+      <h2 class="section-title">
+        <i class="fa-solid fa-certificate"></i>
+        Cursos realizados
+      </h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th><i class="fa-solid fa-book"></i> Curso</th>
+              <th><i class="fa-solid fa-building"></i> Entidad</th>
+              <th><i class="fa-solid fa-calendar"></i> Año</th>
+              <th><i class="fa-solid fa-clock"></i> Duración</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Producción Musical</td>
+              <td class="issuer">Claseflix</td>
+              <td class="year-cell">2026</td>
+              <td>4h</td>
+            </tr>
+            <tr>
+              <td>Desarrollo de Aplicaciones Web</td>
+              <td class="issuer">eFundae</td>
+              <td class="year-cell">2026</td>
+              <td>150h</td>
+            </tr>
+            <tr>
+              <td>Ciberseguridad</td>
+              <td class="issuer">eFundae</td>
+              <td class="year-cell">2025</td>
+              <td>4h</td>
+            </tr>
+            <tr>
+              <td>Experto en impresión con Bambulab A1</td>
+              <td class="issuer">Bambulab</td>
+              <td class="year-cell">2025</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Experto en impresión con Bambulab PS1</td>
+              <td class="issuer">Bambulab</td>
+              <td class="year-cell">2025</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Identificar y resolver problemas técnicos sencillos en dispositivos informáticos</td>
+              <td class="issuer">eFundae</td>
+              <td class="year-cell">2025</td>
+              <td>4h</td>
+            </tr>
+            <tr>
+              <td>Sistemas Cloud</td>
+              <td class="issuer">eFundae</td>
+              <td class="year-cell">2025</td>
+              <td>150h</td>
+            </tr>
+            <tr>
+              <td>Trabajo colaborativo con herramientas en la nube</td>
+              <td class="issuer">eFundae</td>
+              <td class="year-cell">2025</td>
+              <td>4h</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="footer fade-up delay-5">
+      <p>
+        <i class="fa-solid fa-terminal"></i>
+        CV web de Iván Peralta Carrera · Diseñado con HTML, CSS y Font Awesome
+      </p>
+    </div>
+  </div>
+</body>
+</html>
